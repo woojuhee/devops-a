@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     // Make build
-                    sh 'make build-gradle'
+                    sh 'make build'
                 }
             }
         }
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     // Push image
-                    sh 'make push-gradle'
+                    sh 'make push'
                 }
             }
         }

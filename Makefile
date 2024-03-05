@@ -24,13 +24,6 @@ build: ## Build image
 push: ## check-git-clean build-image ## Push image
 	@docker push $(DOCKER_REPOSITORY):$(DOCKER_IMAGE_VERSION)-maven
 
-build-gradle: ## Build image
-	@docker build -t $(DOCKER_REPOSITORY):latest -f ./Dockerfile_gradle .
-	@docker tag $(DOCKER_REPOSITORY):latest $(DOCKER_REPOSITORY):$(DOCKER_IMAGE_VERSION)-gradle
-
-push-gradle: ## check-git-clean build-image ## Push image
-	@docker push $(DOCKER_REPOSITORY):$(DOCKER_IMAGE_VERSION)-gradle
-
 sonarqube:
 	@docker build \
 		--build-arg GIT_BRANCH=$(GIT_BRANCH) \
