@@ -2,7 +2,7 @@
 
 DOCKER_IMAGE_NAME ?= spring-petclinic
 DOCKER_PROJECT_NAME ?= docker.io/jheewoo
-DOCKER_IMAGE_VERSION ?= pet-d-$(shell git describe)
+DOCKER_IMAGE_VERSION ?= pet-e-$(shell git describe)
 DOCKER_REPOSITORY ?= $(DOCKER_PROJECT_NAME)/$(DOCKER_IMAGE_NAME)
 GIT_BRANCH ?= master
 
