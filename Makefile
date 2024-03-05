@@ -2,7 +2,7 @@
 
 DOCKER_IMAGE_NAME ?= spring-petclinic
 DOCKER_PROJECT_NAME ?= docker.io/jheewoo
-DOCKER_IMAGE_VERSION ?= $(shell git describe)
+DOCKER_IMAGE_VERSION ?= pet-a-$(shell git describe)
 DOCKER_REPOSITORY ?= $(DOCKER_PROJECT_NAME)/$(DOCKER_IMAGE_NAME)
 GIT_BRANCH ?= master
 
@@ -19,10 +19,10 @@ check-git-clean: ## Check git
 
 build: ## Build image
 	@docker build -t $(DOCKER_REPOSITORY):latest .
-	@docker tag $(DOCKER_REPOSITORY):latest $(DOCKER_REPOSITORY):$(DOCKER_IMAGE_VERSION)-maven
+	@docker tag $(DOCKER_REPOSITORY):latest $(DOCKER_REPOSITORY):$(DOCKER_IMAGE_VERSION)
 
 push: ## check-git-clean build-image ## Push image
-	@docker push $(DOCKER_REPOSITORY):$(DOCKER_IMAGE_VERSION)-maven
+	@docker push $(DOCKER_REPOSITORY):$(DOCKER_IMAGE_VERSION)
 
 sonarqube:
 	@docker build \
